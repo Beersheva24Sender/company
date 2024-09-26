@@ -38,7 +38,7 @@ public class CompanyImpl implements Company {
     public void addEmployee(Employee empl) {
         long id = empl.getId();
         if (employees.putIfAbsent(id, empl) != null) {
-            throw new IllegalStateException("employee already exitis" + id);
+            throw new IllegalStateException("employee already exits" + id);
         }
         addIndexMaps(empl);
     }
@@ -59,7 +59,7 @@ public class CompanyImpl implements Company {
     public Employee removeEmployee(long id) {
         Employee empl = employees.remove(id);
         if (empl == null) {
-            throw new NoSuchElementException("employee not found" + id);
+            throw new NoSuchElementException("employee was not found" + id);
         }
         removeFromIndexMaps(empl);
         return empl;
